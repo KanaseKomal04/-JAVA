@@ -1,0 +1,133 @@
+QUE-1
+
+class SortCity 
+{ 
+public static void main(String arg[]) 
+{ 
+            String name[]=new String[10]; 
+            int 
+l=arg.length; 
+            String temp; 
+for(int i=0;i<l;i++) 
+{ 
+    name[i]=arg[i]; 
+} 
+    for(int j=0;j<l;j++) 
+    { 
+        for(int k=j+1;k<l;k++) 
+        { 
+            if((name[j].compareTo(name[k]))<0) 
+            { 
+                temp=name[j]; 
+                name[j]=name[k]; 
+                name[k]=temp; 
+            } 
+        } 
+    } 
+        System.out.println("Sorted City Are-"); 
+        for(int i=0;i<l;i++) 
+        {          
+            System.out.println(name[i]); 
+        } 
+} 
+} 
+ 
+/*OUTPUT 
+D:\javapro>javac SortCity.java 
+D:\javapro>java SortCity  pune nagar solapur thane satara baramati 
+Sorted City Are- 
+thane 
+solapur 
+satara 
+pune 
+nagar 
+Baramati*/
+
+QUE=2
+
+import java.util.*; 
+class Patient 
+{ 
+String name; 
+int age; 
+int oxylevel; 
+int HRCTreport; 
+patient(String name, int age, int oxylevel, int HRCTreport) 
+{ 
+this.name = name; 
+this.age = age; 
+this.oxylevel = oxylevel; 
+this.HRCTreport = HRCTreport; 
+} 
+} 
+public class Main extends Exception 
+{ 
+public static void main(String[] args) 
+{ 
+Scanner sc = new Scanner(System.in); 
+System.out.println("How many patient you want insert:"); 
+int number = sc.nextInt(); 
+patient[] ob = new patient[number]; 
+for(int j=0; j<number; j++) 
+{ 
+System.out.println("Enter Name "); 
+String name = sc.next(); 
+System.out.println("Enter Age "); 
+int age = sc.nextInt(); 
+System.out.println("Enter oxygen level"); 
+int oxylevel = sc.nextInt(); 
+System.out.println("Enter HRCT report"); 
+int HRCTreport = sc.nextInt(); 
+ob[j] = new patient(name, age, oxylevel, HRCTreport); 
+} 
+for(int j=0; j<number; j++) 
+{ 
+if(ob[j].oxylevel < 95 && ob[j].HRCTreport > 10) 
+try 
+{ 
+throw new NullPointerException("\n"); 
+} 
+catch(Exception e) 
+{ 
+System.out.println("Patient is Covid Positive(+) and Need to Hospitalized\ 
+n"); 
+} 
+else 
+{ 
+System.out.println("name: "+ob[j].name); 
+System.out.println("age " + ob[j].age); 
+System.out.println("oxygen level " +ob[j].oxylevel); 
+System.out.println("HRCT report " + ob[j].HRCTreport); 
+System.out.println("\n"); 
+} 
+} 
+} 
+} 
+Output: 
+How many patient you want insert: 
+2 
+Enter Name 
+abc 
+Enter Age 
+109 
+Enter oxygen level 
+70 
+Enter HRCT report 
+10 
+Enter Name 
+xyz 
+Enter Age 
+111 
+Enter oxygen level 
+60 
+Enter HRCT report 
+9 
+name: abc 
+age 109 
+oxygen level 70 
+HRCT report 10 
+name: xyz 
+age 111 
+oxygen level 60 
+HRCT report 9
+
