@@ -1,0 +1,171 @@
+QUE-1
+
+import java .io.*; 
+class InvalidDateException extends Exception 
+{ 
+} 
+class MyDate 
+{ 
+    int day,mon,yr; 
+        void accept(int d,int m,int y) 
+        { 
+day=d; 
+mon=m; 
+            yr=y; 
+        } 
+        void display() 
+        { 
+System.out.println("Date is valid : "+day+"/"+mon+"/"+yr); 
+        } 
+} 
+class DateMain 
+{ 
+    public static void main(String arg[]) throws Exception 
+    { 
+        System.out.println("Enter Date  :  dd mm yyyy "); 
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
+        int day=Integer.parseInt(br.readLine()); 
+        int mon=Integer.parseInt(br.readLine()); 
+        int yr=Integer.parseInt(br.readLine()); 
+        int flag=0; 
+        try 
+{ 
+mon==12) 
+        if(mon<=0 || mon>12) 
+            throw  new InvalidDateException(); 
+        else 
+        { 
+            if(mon==1 || mon==3 || mon==5 || mon==7 || mon==8 || mon==10 || 
+             { 
+            } 
+                if(day>=1 && day <=31)        
+                    flag=1; 
+                else 
+                    throw
+  new InvalidDateException(); 
+            else if (mon==2) 
+            { 
+                            if(yr%4==0) 
+                            { 
+                                if(day>=1 && day<=29) 
+                                    flag=1; 
+                                else throw  new InvalidDateException(); 
+                            } 
+                            else 
+                            { 
+                                if(day>=1 && day<=28) 
+                                    flag=1; 
+                                else throw  new InvalidDateException(); 
+                            } 
+                        } 
+                        else                
+                        { 
+                            if(mon==4 || mon == 6 || mon== 9 || mon==11) 
+                            { 
+                                if(day>=1 && day <=30) 
+                                    flag=1; 
+                                else throw  new InvalidDateException(); 
+                            } 
+                        } 
+                    } 
+                if(flag== 1) 
+                { 
+                    MyDate dt = new MyDate(); 
+                    dt.accept(day,mon,yr); 
+                    dt.display(); 
+                } 
+            } 
+        catch (InvalidDateException mm) 
+        { 
+            System.out.println("Invalid Date"); 
+        } 
+         
+    } 
+ 
+QUE-2
+
+import java.util.Scanner; 
+public class Employee  
+{ 
+int id; 
+String name; 
+String deptname; 
+float salary; 
+static int numberofobjects=0; 
+Employee() 
+{ 
+id=0; 
+name=""; 
+deptname=""; 
+salary=0; 
+} 
+Employee(int id,String name,String deptname,float salary ) 
+{ 
+this.id=id; 
+this.name=name; 
+this.deptname=deptname; 
+this.salary=salary; 
+numberofobjects++; 
+} 
+public void display() 
+{ 
+System.out.println("Employee Id :"+id); 
+System.out.println("Employee name: "+name); 
+System.out.println("Employee Department: "+deptname); 
+System.out.println("Employee Salary :"+salary); 
+} 
+public static void main(String[] args){ 
+int n=0; 
+Scanner sc=new Scanner(System.in); 
+System.out.print("How many employees you want to enter :"); 
+n=sc.nextInt(); 
+Employee[] ob=new Employee[n]; 
+for(int i=0;i<n;i++) 
+{ 
+sc= new Scanner(System.in); 
+System.out.println("Enter Id of employee "+(i+1)+" :"); 
+int id=sc.nextInt(); 
+System.out.println("Enter Name of employee "+(i+1)+" :"); 
+sc.nextLine(); 
+String name= sc.nextLine(); 
+System.out.println("Enter dept name of employee "+(i+1)+" :"); 
+String deptname=sc.nextLine(); 
+System.out.println("Enter salary of employee "+(i+1)+" :"); 
+float salary = sc.nextFloat(); 
+ob[i]=new Employee(id,name,deptname,salary); 
+System.out.println("\nNumber of Objects : "+numberofobjects); 
+} 
+for(int i=0;i<n;i++) 
+{ 
+ob[i].display(); 
+} 
+} 
+} 
+Output: 
+How many employees you want to enter :2 
+Enter Id of employee 1 : 
+1 
+Enter Name of employee 1 : 
+rohit 
+Enter dept name of employee 1 : 
+abc 
+Enter salary of employee 1 : 
+1000000 
+Number of Objects : 1 
+Enter Id of employee 2 : 
+2 
+Enter Name of employee 2 : 
+bairwa 
+Enter dept name of employee 2 : 
+90000000 
+Enter salary of employee 2 : 
+78888888 
+Number of Objects : 2 
+Employee Id :1 
+Employee name: rohit 
+Employee Department: abc 
+Employee Salary :1000000.0 
+Employee Id :2 
+Employee name: bairwa 
+Employee Department: 90000000 
+Employee Salary :7.8888888E7
