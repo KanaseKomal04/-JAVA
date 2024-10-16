@@ -1,4 +1,10 @@
-QUE-1
+QUE-1' Design a class for Bank. Bank Class should support following operations; 
+a. 
+b. 
+c. 
+Deposit a certain amount into an account 
+Withdraw a certain amount from an account 
+Return a Balance value specifying the amount with details'
 
 import java.util.Scanner;   
 class BankDetails {   
@@ -132,7 +138,8 @@ ch = sc.nextInt();
         }   
     }   
 
-QUE-2
+QUE-2' Write a program to accept a text file from user and display the contents of a file in 
+reverse order and change its case'
 
  import java.io.*; 
 import java.util.*; 

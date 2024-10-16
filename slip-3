@@ -1,4 +1,4 @@
-QUE-1
+QUE-1.' Write a program to accept ‘n’ name of cities from the user and sort them in ascending order.'
 
 class SortCity 
 { 
@@ -43,7 +43,11 @@ pune
 nagar 
 Baramati*/
 
-QUE=2
+QUE=2.'Define a class patient (patient_name, patient_age, 
+patient_oxy_level,patient_HRCT_report). Create an object of patient. Handle appropriate 
+exception while patient oxygen level less than 95% and HRCT scan report greater than 10, 
+then throw user defined Exception “Patient is Covid Positive(+) and Need to Hospitalized” 
+otherwise display its information.'
 
 import java.util.*; 
 class Patient 

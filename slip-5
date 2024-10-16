@@ -1,4 +1,5 @@
-QUE-1
+QUE-1'.Write a program for multilevel inheritance such that Country is inherited from Continent. 
+State is inherited from Country. Display the place, State, Country and Continent.'
 
 import java.io.BufferedReader; 
 import java.io.IOException; 
@@ -66,7 +67,11 @@ Country: India
 State: Maharashtra 
 Place :Pune
 
-QUE-2
+QUE-2. 'Write a menu driven program to perform the following operations on multidimensional 
+array ie matrices : 
+ Addition 
+ Multiplication 
+ Exit'
 
 import java.util.Arrays; 
 import java.util.Scanner; 

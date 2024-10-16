@@ -1,4 +1,5 @@
-QUE-1
+QUE-1.' Write a program to display the Employee(Empid, Empname, Empdesignation, Empsal) 
+information using toString().'
 
 import java.util.Scanner; 
 public class Employee { 
@@ -39,7 +40,11 @@ Enter the name :: Smith
 Enter the salary :: 30250.0 
 Enter the empid :: 103
 
-QUE-2
+QUE-2'. Create an abstract class “order” having members id, description. Create two subclasses 
+“PurchaseOrder” and “Sales Order” having members customer name and Vendor name 
+respectively. Definemethods accept and display in all cases. Create 3 objects each of 
+Purchase Order and Sales Order and accept and display details. 
+'
 
 import java.io.BufferedReader; 
 import java.io.IOException; 
