@@ -1,135 +1,125 @@
-QUE-1
-
-import java.awt.*;     
-import javax.swing.*;     
-public class Border    
-{     
-JFrame f;     
-Border()   
-{     
-    f = new JFrame();     
-     // 
-creating buttons   
-    JButton b1 = new JButton("NORTH");; // the button will be labeled as NORTH    
-    JButton b2 = new JButton("SOUTH");; // the button will be labeled as SOUTH   
-    JButton b3 = new JButton("EAST");; // the button will be labeled as EAST   
-    JButton b4 = new JButton("WEST");; // the button will be labeled as WEST   
-    JButton b5 = new JButton("CENTER");; // the button will be labeled as CENTER   
-    f.add(b1, BorderLayout.NORTH); // b1 will be placed in the North Direction     
-    f.add(b2, BorderLayout.SOUTH);  // b2 will be placed in the South Direction     
-    f.add(b3, BorderLayout.EAST);  // b2 will be placed in the East Direction     
-    f.add(b4, BorderLayout.WEST);  // b2 will be placed in the West Direction     
-    f.add(b5, BorderLayout.CENTER);  // b2 will be placed in the Center     
-    f.setSize(300, 300);     
-    f.setVisible(true);     
-}     
-public static void main(String[] args) {     
-    new Border();     
-}     
-}     
-
-QUE-2
-
+QUE-1'_1: Define an interface “Operation” which has method volume( ).Define a constant PI 
+having a value 3.142 Create a class cylinder which implements this interface (members – 
+radius,height). Create one object and calculate the volume. '
+ 
 import java.io.*; 
-class Cricket { 
-String name; 
-int inning, tofnotout, totalruns; 
-float batavg; 
-public Cricket(){ 
-name=null; 
-inning=0; 
-tofnotout=0; 
-totalruns=0; 
-batavg=0; 
+interface Operation  
+{ 
+    final static float pi=3.142f; 
+    void area(); 
+    void volume(); 
 } 
-public void get() throws IOException{ 
-BufferedReader br=new BufferedReader(new InputStreamReader(System.in)); 
-System.out.println("Enter the name, no of innings, no of times not out, total runs: "); 
-name=br.readLine(); 
-inning=Integer.parseInt(br.readLine()); 
-tofnotout=Integer.parseInt(br.readLine()); 
-totalruns=Integer.parseInt(br.readLine()); 
+class Cylinder implements Operation  
+{ 
+    double radius,height; 
+    void input() throws Exception 
+    { 
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
+        System.out.print("\n Enter the radius and height="); 
+        radius=Double.parseDouble(br.readLine()); 
+        height=Double.parseDouble(br.readLine());  
+    } 
+    public void area() 
+    { 
+        double a=(2*pi*radius*height)+(2*pi*radius*radius); 
+        System.out.println("the area of cylinder is " +a); 
+    } 
+     public void volume() 
+    { 
+        double v=pi*radius*radius*height; 
+        System.out.println("the volume of cylinder is "+v); 
+    } 
 } 
-public void put(){ 
-System.out.println("Name="+name); 
-System.out.println("no of innings="+inning); 
-System.out.println("no times notout="+tofnotout); 
-System.out.println("total runs="+totalruns); 
-System.out.println("bat avg="+batavg); 
-} 
-static void avg(int n, Cricket c[]){ 
-try{ 
-for(int i=0;i<n;i++){ 
-c[i].batavg=c[i].totalruns/c[i].inning; 
-} 
-}catch(ArithmeticException e){ 
-System.out.println("Invalid arg"); 
-} 
-} 
-static void sort(int n, Cricket c[]){ 
-String temp1; 
-int temp2,temp3,temp4; 
-float temp5; 
-for(int i=0;i<n;i++){ 
-for(int j=i+1;j<n;j++){ 
-if(c[i].batavg<c[j].batavg){ 
-temp1=c[i].name; 
-c[i].name=c[j].name; 
-c[j].name=temp1; 
-temp2=c[i].inning; 
-c[i].inning=c[j].inning; 
-c[j].inning=temp2; 
-temp3=c[i].tofnotout; 
-c[i].tofnotout=c[j].tofnotout; 
-c[j].tofnotout=temp3; 
-temp4=c[i].totalruns; 
-c[i].totalruns=c[j].totalruns; 
-c[j].totalruns=temp4; 
-temp5=c[i].batavg; 
-c[i].batavg=c[j].batavg; 
-c[j].batavg=temp5; 
+ class slipno11a  
+{ 
+    public static void main(String args[]) throws Exception 
+    { 
+        Cylinder C1=new Cylinder(); 
+        C1.input(); 
+        C1.area();
+        C1.volume(); 
 } 
 } 
+QUE-2:'Write a program to accept the username and password from user if username and 
+password are not same then raise "Invalid Password" with appropriate msg.'
+
+import java.awt.*; 
+import java.awt.event.*; 
+import javax.swing.*; 
+class InvalidPasswordException extends Exception 
+{} 
+class Userpassword extends JFrame implements ActionListener 
+{ 
+JLabel name, pass; 
+JTextField nameText; 
+JPasswordField passText; 
+JButton login, end; 
+static int cnt=0; 
+Userpassword() 
+{ 
+name = new JLabel("Name : "); 
+pass = new JLabel("Password : "); 
+nameText = new JTextField(20); 
+passText = new JPasswordField(20);  
+login = new JButton("Login"); 
+end = new JButton("End"); 
+login.addActionListener(this); 
+end.addActionListener(this); 
+setLayout(new GridLayout(3,2)); 
+add(name); 
+add(nameText); 
+add(pass); 
+add(passText);
+add(login); 
+add(end); 
+setTitle("Login Check"); 
+setSize(300, 300); 
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+setVisible(true); 
+} 
+public void actionPerformed (ActionEvent e) 
+{ 
+if(e.getSource()==end) 
+{ 
+System.exit(0); 
+} 
+if(e.getSource()==login) 
+{ 
+try 
+{ 
+String user = nameText.getText(); 
+String pass = new String(passText.getPassword());  
+if(user.compareTo(pass)==0) 
+{ 
+JOptionPane.showMessageDialog(null, "Login Successful", 
+"Login", JOptionPane. INFORMATION_MESSAGE); 
+System.exit(0); 
+} 
+else 
+{ 
+throw new InvalidPasswordException(); 
 } 
 } 
+catch(Exception e1)
+{ 
+    cnt++; 
+    JOptionPane.showMessageDialog(null, "Login Failed", "Login", 
+JOptionPane.ERROR_MESSAGE); 
+    nameText.setText(""); 
+    passText.setText(""); 
+    nameText.requestFocus();  
+    if(cnt==3) 
+    { 
+     JOptionPane.showMessageDialog(null,"3 Attempts Over", 
+"Login", JOptionPane.ERROR_MESSAGE); 
+     System.exit(0); 
+    } 
+   
+   }   
+ } 
+ } 
+ public static void main(String args[]) 
+ { 
+  new Userpassword(); 
+ }  
 } 
-public class a4sa1 { 
-public static void main(String args[])throws IOException{ 
-BufferedReader br=new BufferedReader(new InputStreamReader(System.in)); 
-System.out.println("Enter the limit:"); 
-int n=Integer.parseInt(br.readLine()); 
-Cricket c[]=new Cricket[n]; 
-for(int i=0;i<n;i++){ 
-c[i]=new Cricket(); 
-c[i].get(); 
-} 
-Cricket.avg(n,c); 
-Cricket.sort(n, c); 
-for(int i=0;i<n;i++){ 
-c[i].put(); 
-} 
-} 
-} 
-Output: 
-Enter the limit: 
-2 
-Enter the name, no of innings, no of times not out, total runs: 
-Virat 
-3 
-1 
-100 
-Enter the name, no of innings, no of times not out, total runs: 
-Rohit 
-2 
-1 
-120 
-Name=Rohit 
-no of innings=2 
-no times notout=1 
-total runs=120 
-bat avg=60.0 
-Name=Virat 
-no of innings=3 
-no times notout=1 
-total runs=100 
-bat avg=33.0
